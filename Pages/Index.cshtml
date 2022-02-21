@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">IT'S THE FINAL COUNTDOWN</h1>
+    <p>Count down timers for when I get car back and when I get my license back.</p>
+</div>
+
+@{ 
+    DateTime today = DateTime.Today;
+    DateTime carDate = new DateTime(2022, 3, 8);
+    DateTime licenseDate = new DateTime(2022, 8, 12);
+    String timeLeft(DateTime date)
+    {
+        TimeSpan diff = today - date;
+        return diff.ToString("%d") + " days";
+    }
+}
+
+<div class="text-center">
+    <p>There is @(timeLeft(carDate)) until you can drive your car.</p>
+    <p>There is @(timeLeft(licenseDate)) until you get your license back. </p>
+</div>
+
